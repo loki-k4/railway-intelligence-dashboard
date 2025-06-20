@@ -1,0 +1,9 @@
+pandas==2.2.3
+geopandas==1.0.1
+cartoframes==1.2.0
+fastapi==0.115.2
+uvicorn==0.32.0
+streamlit==1.39.0
+plotly==5.24.1
+python-dotenv==1.0.1
+scikit-learn==1.5.2
