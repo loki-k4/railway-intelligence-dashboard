@@ -1,0 +1,86 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.pyc
+.Python
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+
+# Environment variables
+.env
+*.env
+*.env.local
+*.env.development.local
+*.env.test.local
+*.env.production.local
+
+# Jupyter Notebooks
+*.ipynb_checkpoints
+
+# Logs
+*.log
+logs/
+*.log.*
+log/
+
+# Dependency directories
+node_modules/
+pip-selfcheck.json
+
+# Build and distribution
+dist/
+build/
+*.egg-info/
+*.egg
+
+# IDE and editor files
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# OS generated files
+.DS_Store
+Thumbs.db
+
+# Project-specific
+# Local data files (e.g., NARN GeoJSON, avoid committing large datasets)
+*.geojson
+*.csv
+*.shp
+*.shx
+*.dbf
+*.gpkg
+*.sqlite
+*.xlsx
+*.kml
+
+# CARTO credentials
+carto_auth.json
+carto_credentials.yml
+
+# Astra Security configurations (if any)
+astra_security_config.json
+
+# Temporary files
+*.tmp
+*.bak
+*.swp
+*~
+
+# Deployment-specific
+*.pid
+*.seed
+*.pid.lock
+
+# Testing and coverage
+.coverage
+coverage.xml
+*.cover
+*.py,cover
+.hypothesis/
+.pytest_cache/
