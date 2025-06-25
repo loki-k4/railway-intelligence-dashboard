@@ -1,30 +1,84 @@
-<!-- index.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="RailIntel - Advanced Tech Solutions for Rail Transport">
-  <title>RailIntel.tech</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Railway Intelligence Dashboard</title>
   <style>
-    body { font-family: Arial, sans-serif; text-align: center; margin: 0; padding: 0; background-color: #f0f0f0; }
-    header { background-color: #333; color: white; padding: 1rem; }
-    h1 { margin: 0; }
-    footer { background-color: #333; color: white; padding: 0.5rem; position: absolute; bottom: 0; width: 100%; }
-    .content { padding: 2rem; }
+    body {
+      font-family: Arial, sans-serif;
+      max-width: 900px;
+      margin: 2rem auto;
+      padding: 0 1rem;
+      line-height: 1.6;
+      color: #222;
+    }
+    h1, h2, h3 {
+      color: #003366;
+    }
+    code {
+      background-color: #f4f4f4;
+      padding: 2px 6px;
+      border-radius: 4px;
+      font-family: monospace;
+    }
+    a {
+      color: #0066cc;
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+    ul {
+      margin-top: 0;
+    }
   </style>
 </head>
 <body>
-  <header>
-    <h1>Welcome to RailIntel.tech</h1>
-    <h1>Lokeswar</h1>
-  </header>
-  <div class="content">
-    <p>Innovating the future of rail transport through technology and intelligence.</p>
-    <p>Stay tuned for updates!</p>
-  </div>
-  <footer>
-    <p>&copy; 2025 RailIntel. All rights reserved.</p>
-  </footer>
+
+  <h1>Railway Intelligence Dashboard</h1>
+
+  <p>The <strong>Railway Intelligence Dashboard</strong> is a cloud-hosted web application that analyzes the <strong>North American Rail Network (NARN)</strong> dataset to recommend rail track segments for investment based on usage, ownership, and strategic importance. Designed for data science and GIS enthusiasts, it leverages <strong>CARTO</strong> for spatial data storage and analysis, <strong>FastAPI</strong> for API services, and <strong>Streamlit</strong> for interactive visualizations, all powered by the <strong>GitHub Student Developer Pack</strong>.</p>
+
+  <h2>Features</h2>
+  <ul>
+    <li><strong>Data Ingestion</strong>: Loads NARN GeoJSON into CARTO, cleaning attributes like <code>PASSNGR</code>, <code>STRACNET</code>, and <code>MILES</code>.</li>
+    <li><strong>Spatial Analysis</strong>: Aggregates track mileage by owner (<code>RROWNER1</code>), state (<code>STATEAB</code>), and strategic status (<code>STRACNET</code>) using CARTO SQL queries.</li>
+    <li><strong>Analytics</strong>: Applies K-means clustering and a weighted scoring model (40% <code>PASSNGR</code>, 30% <code>STRACNET</code>, 20% <code>MILES</code>, 10% <code>TRACKS</code>) to prioritize investments.</li>
+    <li><strong>Visualization</strong>: Displays interactive maps, tables, and charts via Streamlit, showing top investment recommendations.</li>
+    <li><strong>Deployment</strong>: Hosted on <strong>DigitalOcean</strong> (API) and <strong>Heroku</strong> (dashboard), with a custom domain from <strong>Namecheap</strong> (e.g., <code>railintel.me</code>).</li>
+    <li><strong>Security &amp; Monitoring</strong>: Secured with <strong>Astra Security</strong>’s firewall and malware scanner; monitored by <strong>Datadog</strong> and <strong>New Relic</strong>.</li>
+  </ul>
+
+  <h2>Technologies</h2>
+  <ul>
+    <li><strong>Backend</strong>: FastAPI, CARTO</li>
+    <li><strong>Frontend</strong>: Streamlit, Plotly, CARTO Maps</li>
+    <li><strong>Infrastructure</strong>: DigitalOcean, Heroku, Namecheap, Termius</li>
+    <li><strong>DevOps</strong>: GitHub Actions, Bump.sh (API documentation), Polypane (responsive testing)</li>
+    <li><strong>Data Processing</strong>: Python (pandas, geopandas, cartoframes)</li>
+    <li><strong>Security</strong>: Astra Security (web application firewall, malware scanner)</li>
+  </ul>
+
+  <h2>Getting Started</h2>
+  <ol>
+    <li>Clone the repository: <code>git clone https://github.com/loki-k4/railway-intelligence-dashboard.git</code></li>
+    <li>Install dependencies: <code>pip install -r requirements.txt</code></li>
+    <li>Set up environment variables in <code>.env</code> for CARTO credentials (e.g., <code>CARTO_USERNAME</code>, <code>CARTO_API_KEY</code>).</li>
+    <li>Run the API: <code>uvicorn api.main:app --reload</code></li>
+    <li>Launch the dashboard: <code>streamlit run dashboard/app.py</code></li>
+  </ol>
+
+  <h2>Dataset</h2>
+  <ul>
+    <li><strong>Source</strong>: Bureau of Transportation Statistics (NARN GeoJSON, <a href="https://doi.org/10.21949/1528950" target="_blank" rel="noopener noreferrer">https://doi.org/10.21949/1528950</a>)</li>
+    <li><strong>Attributes</strong>: <code>OBJECTID</code>, <code>RROWNER1</code>, <code>PASSNGR</code>, <code>STRACNET</code>, <code>TRACKS</code>, <code>MILES</code>, <code>Shape_Length</code>, <code>STATEAB</code>, <code>STFIPS</code>, etc.</li>
+  </ul>
+
+  <h2>License</h2>
+  <p><a href="LICENSE" target="_blank" rel="noopener noreferrer">MIT License</a> - Free to use, modify, and distribute.</p>
+
+  <p>Contributions welcome! See <a href="CONTRIBUTING.md" target="_blank" rel="noopener noreferrer">CONTRIBUTING.md</a> for details.</p>
+
 </body>
 </html>
